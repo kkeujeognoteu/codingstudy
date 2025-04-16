@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <section class="visual en">
+            <div class="imgBox">
+                <img src="images/work2.jpg" alt="">
+            </div>
+            <div class="titleBox">
+                <p class="for">Website <span class="en2">for</span></p>
+                <div class="textLoop">
+                    <ul>
+                        <li>J.young Portfolio Process</li>
+                        <li>J.young Portfolio Process</li>
+                        <li>J.young Portfolio Process</li>
+                        <li>J.young Portfolio Process</li>
+                        <li>J.young Portfolio Process</li>
+                    </ul>
+                </div>
+                <p class="date"><span class="en2">december</span>2024</p>
+            </div>
+            <div class="textBox">
+                <ul>
+                    <li class="top"><h2>J.young Portfolio</h2></li>
+                    <li>
+                        <h3>Date</h3>
+                        <span class="en2">December 2024 - 2 weeks</span>
+                    </li>
+                    <li>
+                        <h3>Concept</h3>
+                        <span class="en2">Responsive Web</span>
+                    </li>
+                    <li>
+                        <h3>prgram</h3>
+                        <span class="en2">visual studio, photoshop</span>
+                    </li>
+                    <li class="mode">
+                        <h3>Language</h3>
+                        <div class="btnBox en2">
+                            <a href="">Pc</a>
+                            <a href="">mobile</a>
+                            <a href="">tablet</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="textLoop2">
+                <ul class="a">
+                    <li>Portfolio UI/UX Process</li>
+                    <li>Portfolio UI/UX Process</li>
+                    <li>Portfolio UI/UX Process</li>
+                    <li>Portfolio UI/UX Process</li>
+                </ul>
+                <ul class="b">
+                    <li>Portfolio UI/UX Process</li>
+                    <li>Portfolio UI/UX Process</li>
+                    <li>Portfolio UI/UX Process</li>
+                    <li>Portfolio UI/UX Process</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.timeline({
+            scrollTrigger:{
+                trigger:'.visual .imgBox',
+                start:'60% 50%',
+                end:'150%',
+                scrub:1,
+                pin:true,
+                markers:true,
+            }
+        })
+
+        .fromTo('.visual .imgBox img', {'transform':'rotateY(-40deg) rotatex(50deg)', 'width':'50%', 'opacity':0.2}, {'transform':'rotateY(0deg) rotatex(0deg)', 'width':'100%', 'opacity':1},0)
+    </script>
+</body>
+</html>

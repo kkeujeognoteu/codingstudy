@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>가로스크롤</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <section class="con01">
+            <div class="textBox">
+                <h1 class="logo">
+                    <a href=""><img src="images/J.youngLogo.png" alt=""></a>
+                </h1>
+                <p class="title">ScrollTrigger</p>
+                <p class="txt">GSAP의 ScrollTriggerf를 활용한 가로스크롤 갤러리 제작</p>
+            </div>
+        </section>
+        <section class="portfolio">
+            <div class="textBox">
+                <h2>Photo Album</h2>
+                <p>THIS IS A FASHION MODEL PHOTOBOOK.</p>
+            </div>
+            <ul class="list">
+                <li class="a">
+                    <div class="box"><img src="images/img_02.png" alt=""></div>
+                </li>
+                <li class="b">
+                    <div class="box"><img src="images/img_03.png" alt=""></div>
+                </li>
+                <li class="c">
+                    <div class="box"><img src="images/img_04.png" alt=""></div>
+                </li>
+                <li class="d">
+                    <div class="box"><img src="images/img_05.png" alt=""></div>
+                </li>
+                <li class="b">
+                    <div class="box"><img src="images/img_06.png" alt=""></div>
+                </li>
+                <li class="c">
+                    <div class="box"><img src="images/img_07.png" alt=""></div>
+                </li>
+                <li class="a">
+                    <div class="box"><img src="images/img_08.png" alt=""></div>
+                </li>
+                <li class="b">
+                    <div class="box"><img src="images/img_09.png" alt=""></div>
+                </li>
+                <li class="c">
+                    <div class="box"><img src="images/img_10.png" alt=""></div>
+                </li>
+                <li class="a">
+                    <div class="box"><img src="images/img_11.png" alt=""></div>
+                </li>
+            </ul>
+        </section>
+        <section class="con03">
+            <div class="textBox">
+                <h2>thank you</h2>
+            </div>
+        </section>
+    </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        
+        let list = gsap.utils.toArray('.portfolio .list li');
+        let listA = gsap.utils.toArray('.portfolio .list li .a')
+        let listB = gsap.utils.toArray('.portfolio .list li .b')
+        let listC = gsap.utils.toArray('.portfolio .list li .c')
+        let listD = gsap.utils.toArray('.portfolio .list li .d')
+
+        let scrollTween = gsap.to(list,{
+            xPercent : -100 * (list.length -1),
+            ease:'none',
+            scrollTrigger: {
+                trigger : '.portfolio',
+                pin:true,
+                scrub: 1,
+                start:'center center',
+                end:'200%',
+                markers: true
+            }
+        });
+
+        gsap.to(listA,{
+            y:50,
+            rotation:10,
+            ScrollTrigger:{
+                trigger:'.portfolio',
+                scrub:2,
+                end:'200%',
+            }
+        })
+        gsap.to(listB,{
+            y:-50,
+            rotation:20,
+            ScrollTrigger:{
+                trigger:'.portfolio',
+                scrub:2,
+                end:'200%',
+            }
+        })
+        gsap.to(listC,{
+            y:-50,
+            x:20,
+            rotation:-100,
+            ScrollTrigger:{
+                trigger:'.portfolio',
+                scrub:2,
+                end:'200%',
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마스크텍스트</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        body{ background:#000; }
+        .textBox{ font-size:78px; font-family:'Bebas Neue', serif; line-height:1.2; margin:2000px 0; }
+        .textBox .mask{ display:block; }
+        .textBox .mask .text{ 
+            -webkit-text-fill-color:rgba(255,255,255,0.2);
+            -webkit-background-clip:text;
+            background-repeat:no-repeat;
+            background-image:linear-gradient(#fff, #fff);
+            background-size:0% 100%;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="textBox">
+        <span class="mask">
+            <span class="text">
+                Nil sine magno vita labore<br>
+                dedit mortalibus.<br>
+                Life has given nothing to mortals<br>
+                without great labor. Nil sine magno vita labore<br>
+                dedit mortalibus.<br>
+                Life has given nothing to mortals<br>
+                without great labor.<br>
+                Nil sine magno vita labore<br>
+                dedit mortalibus<br>
+            </span>
+        </span>
+    </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.fromTo('.textBox .mask span', {
+            'background-size':'0% 100%'
+        },{
+            'background-size':'100% 100%',
+            scrollTrigger:{
+                trigger :'.textBox',
+                pinnedContainer : '.textBox',
+                start: '0% 60%',
+                markers:true,
+                scrub:1
+            }
+        })
+    </script>
+</body>
+</html>

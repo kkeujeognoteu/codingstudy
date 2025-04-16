@@ -1,0 +1,10 @@
+*{ margin:0; padding:0; }
+section{ height:100vh; display:flex; justify-content: center; align-items:center; }
+h2 { font-size:140px; text-transform: uppercase; color:#000; line-height:1; }
+.con01 h2 span{ display:block; -webkit-text-stroke: 2px #f45b40; color:transparent }
+.con02{ position:relative; height:1200px; overflow:hidden; }
+.con02 .circle{ display:block; width:2500px; height:2500px; border-radius:50%; background:#000; position:absolute; top:40%; left:50%; transform:translateX(-50%); }
+.con02 .textBox{ position:absolute; top:50%; left:50%; transform:translateX(-50%); color:#fff; text-transform:uppercase ; text-align:center; z-index:2; }
+.con02 .textBox p{ font-size:64px; font-weight:bold; letter-spacing: -5px; line-height: 1; }
+.con03{ background:#000; }
+.con03 h2{ color:#888 }

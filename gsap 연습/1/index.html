@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인사하는 캐릭터</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <section class="character">
+        <div class="stage"></div>
+        <p class="img"><img src="images/spin_large.png"></p>
+    </section>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const frameCount = 15;
+              offsetValue = 100;
+        
+        gsap.to('.stage', {
+            backgroundPosition : (- offsetValue * frameCount * 1.0) + "px center",
+            
+            ease: 'steps('+ frameCount + ')', //가속도
+            scrollTrigger: {
+                trigger: '.character', //대상
+                start: ' top top', //시작점점
+                end: '+=' + (frameCount * offsetValue), //종료점점
+                pin: true, //부드럽게
+                scrub: true, 
+                markers: true,
+            }
+        })
+    </script>
+</body>
+</html>

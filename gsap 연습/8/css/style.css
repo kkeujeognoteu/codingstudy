@@ -1,0 +1,146 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital@1&family=Noto+Sans+KR&family=Public+Sans&display=swap');
+
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+a {color: inherit; text-decoration: inherit;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+button {background: none; border: none;}
+img {vertical-align: middle;}
+
+.en{ font-family:'Public Sans', sans-serif }
+.en2{ font-family:'Cormorant Infant', serif }
+
+body{ font-family:'Noto Sans KR', sans-serif; font-size:16px; line-height: 1.6; }
+.wrap{ position:relative; margin:0 auto; overflow:hidden; background:#000; color:#fff; }
+
+header{ position:fixed; width:100%; left:0; top:0; background:rgba(0,0,0,0.5); display:flex; justify-content: space-between; align-items:center; padding:30px 60px; z-index:100; box-sizing: border-box; }
+header.active{ transform:translateY(-100%); }
+header .logo{ color:#fff; }
+header .menuOpen{ display:none; transition:.3s; }
+header .gnb ul{ display:flex; justify-content: space-between; }
+header .gnb ul li{ margin-left:70px; }
+header .gnb ul li a{ display:block; }
+
+/* gnb hover 효과 */
+.gnb ul li a .char{ position:relative; display:inline-block; color:transparent; overflow:hidden; }
+.gnb ul li a .char:before, .gnb ul li a .char:after{ content:attr(data-char); position:absolute; top:0; left:0; opacity: 0.6; color:#fff; transition:transform 0.35s; transition-delay:calc(30ms * var(--char-index)); }
+.gnb ul li a .char:before{ transform:translateY(100%); }
+.gnb ul li a:hover .char:before{ transform:translateY(0%); opacity: 1; }
+.gnb ul li a:hover .char:after{ transform:translateY(-100%); }
+/* data 속성 => data-로 시작하는 속성으로 이 속성은 특정한 데이터를 DOM에 이용하기 위함이 목적이 저정된 데이터를 attr() 함수를 이용해 속성을 가져온다. */
+
+/* visual */
+.visual{ position:relative; width:100%; height:100vh; padding-top:125px; letter-spacing: -1px;; box-sizing: border-box; }
+.visual .mainTxt{ font-size:140px; font-weight:400; line-height:1.2; margin: 0 0 150px 60px; display:inline-block; }
+.visual .mainTxt p{ overflow:hidden }
+.visual .subTxt P{ margin-left:20%; }
+.visual .scroll{ position:fixed; left:60px; bottom:40px; }
+.visual .svgAni{ position:absolute; right:-2%; top:9%; width:55%; transform:rotate(-10deg) }
+
+/* animation */
+.visual.motion .mainTxt{ transform:translate3d(0,0,0) skewY(0deg); overflow:hidden; }
+.visual.motion .mainTxt p span{ display:block; animation-name:textAni; animation-duration: 1.8s; }
+.visual.motion .mainTxt p:nth-child(2) span{ animation-duration: 1.7s; }
+.visual.motion .mainTxt p:nth-child(3) span{ animation-duration: 1.5s; }
+@keyframes textAni{
+    0%{ opacity: 0; }
+    30%{ opacity: 0; transform:translate3d(0,-90px,0) skewY(-10deg); transform-origin:top left; }
+}
+
+@keyframes textani2{
+    0%{ opacity:0; }
+    30%{ opacity:0; }
+}
+
+.visual.motion .subTxt{ animation:textani2 2.3s; }
+/* svg 모션 */
+.visual.motion #svgAni01{ stroke-dasharray: 675; stroke-dashoffset: -675; animation:ani1 .5s linear 2s forwards; }
+.visual.motion #svgAni03{ stroke-dasharray: 3059; stroke-dashoffset: 3059; animation:ani3 2s linear .1s forwards; }
+.visual.motion #svgAni04{ stroke-dasharray: 64; stroke-dashoffset: 64; animation:ani4 .2s linear 1s forwards; }
+.visual.motion #svgAni05{ stroke-dasharray: 55; stroke-dashoffset: 55; animation:ani5 .2s linear 0s forwards; }
+
+@keyframes ani1{
+    0%{ stroke-dashoffset:675 }
+    100%{ stroke-dashoffset:0 }
+}
+@keyframes ani3{
+    0%{ stroke-dashoffset:3059 }
+    100%{ stroke-dashoffset:0 }
+}
+@keyframes ani4{
+    0%{ stroke-dashoffset:64 }
+    100%{ stroke-dashoffset:0 }
+}
+@keyframes ani5{
+    0%{ stroke-dashoffset:55 }
+    100%{ stroke-dashoffset:0 }
+}
+
+/* con01 */
+.con01{ position:relative; width:100vw; height:100vh; }
+.con01 .videoWrap video{ width:100vw; height:100vh; object-fit: cover; position:absolute; top:0; left:0; }
+.con01 .title{ position:absolute; width:100%; text-align:center; top:50%; left:0; transform:translateY(-50%); color:#fff; }
+.con01 .title h2{ font-size:80px; font-weight:400; letter-spacing: -1px; line-height:1.2 ; }
+
+/* con02 */
+.con02 .title{ width:100%; height:100vh; font-size:170px; line-height: 0.9; text-align:center; padding-top:30vh; box-sizing:border-box }
+.con02 .title p{ font-size:220px; }
+.con02 .workList { width:70%; margin:0 auto; display:flex; flex-wrap:wrap; justify-content: space-between; }
+.con02 .workList li{ width:45%; margin-top:200px; }
+.con02 .workList li:nth-child(2n){ margin-top:0; }
+.con02 .workList li a{ display:block; }
+.con02 .workList li .imgBox img{ width:100%; }
+.con02 .workList li .textBox h3{ font-size:35px; font-weight:normal; margin:20px 0 5px; }
+.con02 .workList li .textBox .info{ display:flex; justify-content: space-between; align-items:center; color:#888; }
+
+/* .con02 worklist hover */
+.con02 .workList li a .imgBox{ position:relative; }
+.con02 .workList li a .imgBox:before{ content:''; position:absolute; width:168px; height:168px; border-radius:100%; border:1px solid #fff; background:url(../images/readMore2.png)no-repeat center/35px; left:50%; top:50%; transform:translate(-50%, -50%) rotate(45deg); z-index:1; transition:all .3s; opacity:0 ; }
+.con02 .workList li a .imgBox:after{ content:''; position:absolute; width:0; height:0; border-radius:100%; background:#fff url(../images/readMore3.png)no-repeat center/ 160px; top:50%; left:50%; transform:translate(-50%, -50%); 
+    animation:spin 10s infinite linear; -webkit-animation:spin 10s infinite linear; transition:.4s; z-index:1; }
+@keyframes spin{
+    0%{ transform:translate(-50%,-50%) rotate(0deg); }
+    100%{ transform:translate(-50%,-50%) rotate(360deg); }
+}
+@-webkit-keyframes spin{
+    0%{ transform:translate(-50%,-50%) rotate(0deg); }
+    100%{ transform:translate(-50%,-50%) rotate(360deg); }
+}
+.con02 .workList li a:hover .imgBox:before{ opacity: 1; z-index: 2 ; }
+.con02 .workList li a:hover .imgBox:after{ width: 168px; height:168px }
+
+/* section.con03 */
+.con03{ width:100%; height:100vh; position:relative; margin-top:200px; }
+.con03 .textWrap{ width:70%; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:2; }
+.con03 .textWrap .title{ font-size:18px; }
+.con03 .textWrap li{ font-size:100px; line-height:1.2 }
+.con03 .textWrap li .en2{ padding-left:5px; }
+
+.con03 .btnWrap{ position:absolute; right:-50%; top:60%; z-index:3; }
+.con03 .btnWrap a{ display:block; width:170px; height:170px; border-radius:100%; border:2px solid #fff; position:relative; box-sizing: border-box; transition:.5s; }
+.con03 .btnWrap a img{ width:22%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(45deg); }
+.con03 .btnWrap a img:nth-child(2){ opacity:0; }
+.con03 .btnWrap a:before{ content:''; width:0; height:0; border-radius: 100%; background:#fff url(../images/readMore3.png)no-repeat center/158px; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); animation:spin 10s infinite linear; transition:.4s; }
+.con03 .btnWrap a:hover{ border-color:transparent; }
+.con03 .btnWrap a:hover img:nth-child(2){ opacity:1 }
+.con03 .btnWrap a:hover:before{ width:100%; height:100%; }
+
+.simply-scroll .simply-scroll-clip { overflow:hidden; transform:rotate(5deg) translate(150%,400px) scale(1.1); opacity: 0; }
+.simply-scroll .simply-scroll-clip .simply-scroll-list li{ float:left; width:400px; filter:brightness(50%) }
+.simply-scroll .simply-scroll-clip .simply-scroll-list li img{ width:100% }
+
+.con03.motion .simply-scroll .simply-scroll-clip{ transform:rotate(5deg) translate(0%,400px) scale(1.1); transition:1.2s; transition-delay: .3s; opacity: 1; }
+.con03.motion .btnWrap{ right:50%; transition:1.2s }
+.con03.motion .textWrap ul li p{ animation:textAni 1.3s; }
+
+/* footer */
+footer{ width:100%; position:relative; height:100vh }
+footer .textWrap{ position:absolute; width:100%; top:30%; padding:0 60px; box-sizing: border-box; font-size:160px; line-height: 1; letter-spacing: -1px; }
+footer .textWrap .title{ font-size:20px; margin-bottom:30px; padding-left:15px; }
+footer .textWrap .contact{ margin-bottom:10px; }
+footer .textWrap a{ display:block; margin-top:-30px; }
+footer .bottom{ position:absolute; bottom:5%; width:100%; display: flex; justify-content:space-between; padding:0 60px; box-sizing: border-box; font-size:30px; letter-spacing: -1px; }
+footer .bottom .sns{ display:flex; }
+footer .bottom .sns li{ margin-right:30px; }

@@ -1,0 +1,10 @@
+*{ margin:0; padding:0; }
+li{ list-style:none; }
+.en{ font-family:'Public Sans', sans-serif; }
+.en1{ font-family:'Cormorant Infant', serif; font-size:120px; color:#ece8c7; font-weight:normal; }
+
+body{ background:#17181d; color:#fff; margin-bottom:5000px; }
+.character{ height:100vh; position:relative; }
+.character p.img{ position:absolute; width:450px; height:450px; left:50%; top:50%; transform:translate(-50%,-50%); }
+.character p.img img{ height:100% }
+.character .stage{ height:100%; background:url(../images/character.png)no-repeat 0 center; max-width:100px; margin:0 auto; }

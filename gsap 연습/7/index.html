@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>GSAP SCROLLTRIGGER_BASIC</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <section class="con01">
+            <h2><span>GSAP</span>SCROLLTRIGGER</h2>
+        </section>
+        <section class="con02">
+            <span class="circle"></span>
+            <div class="textBox">
+                <p>
+                    our release<br>
+                    get a feeling<br>
+                    for the latest<br>
+                    selected sound
+                </p>
+            </div>
+        </section>
+        <section class="con03">
+            <h2>ScrollTrigger</h2>
+        </section>
+    </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let circle = document.querySelectorAll('.circle')
+        let t1 = gsap.timeline({
+            scrollTrigger:{
+                trigger:'.con02',
+                start:'0% 50%',
+                end:'30% 0%',
+                scrub:1,
+                markers:true,
+            }
+        })
+        t1.from(circle,{'width':'0','height':'0','duration':'10','ease':'elastic','top':'3'})
+        t1.to(circle,{'width':'2500px','height':'2500px','duration':'10','top':'30%'},0)
+        
+        let textBox = document.querySelectorAll('.textBox')
+        let t2 = gsap.timeline({
+            scrollTrigger:{
+                trigger: '.con02 .textBox',
+                start: '0% 80%',
+                end:'100% 80%',
+                scrub:1,
+                markers:true,
+            }
+        })
+
+        t2.from(textBox, {'top':'50%','duration':'5','ease':'elastic','opacity':'0'})
+        t2.to(textBox, {'duration':'5','ease':'none','opacity':'1','top':'40%'},0)
+    </script>
+</body>
+</html>
