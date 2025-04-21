@@ -36,8 +36,9 @@ $(function(){
 /* each() 메서드는 object와 배열 모두 사용할 수 있는 반복함수인데, length 속성을 갖는 배열과 유사배열 객체들의 index를 기준으로
 첫번째 매개뱐수로 배열이나 객체를 받고, 두번째 매개변수로 콜백함수 값을 인자로 받음*/
 
-// .con01 gsap 애니메이션
+
 $(function(){
+    // .con01 gsap 애니메이션
   gsap.timeline({
     scrollTrigger : {
         trigger : '.con01', //트리거 대상
